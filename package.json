@@ -1,0 +1,29 @@
+{
+  "name": "mapaadn",
+  "version": "1.0.0",
+  "description": "Sistema gestion procesos servidor para adn 3.0",
+  "main": "mapa.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": " https: //github.com/fredyteheranto/servergestion.git",
+  "keywords": [
+    "Electron",
+    "adn",
+    "mapa"
+  ],
+  "author": "fredyteheranto",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  },
+  "dependencies": {
+    "electron-handlebars": "^2.0.0",
+    "handlebars": "^4.0.12",
+    "jquery": "^3.3.1",
+    "nodemiral": "^1.1.1",
+    "smalltalk": "^3.2.2",
+    "then-request": "^6.0.0"
+  }
+}

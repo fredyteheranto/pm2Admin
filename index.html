@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="./statics/js/app.css" rel="stylesheet" type="text/css" />
+
+	<meta charset="UTF-8">
+	<title>Mapa ADN</title>
+</head>
+
+
+
+<body>
+	<div id="menu">
+		<script id="template" type="text/x-handlebars-template">
+			<nav>
+        <header>
+        <img class="profile-image" src="notifyiconblanco.png" style="
+    padding-top: 30px;
+    margin-bottom: -49px;
+">
+        <h3>Mapa ADN</h3>
+        </header>
+      
+        <section>
+          <header>Servidores</header>
+          <ul>
+            {{#each people}}
+            <li class="green boton databuton" data-name="{{this.name}}" data-deploy="{{this.pm2_env.pm_cwd}}"  id="{{this.pm_id}}">{{this.name}}</li>
+            {{/each}}
+            <li class="red boton" id="crearServer" onclick="crearServer()">Crear Servicio</li>
+          </ul>
+
+        </section>
+      </nav>
+      <article>
+        <header>
+          <div class="title"><span id="s"></span></div>
+    
+
+              <div class="interval">
+                <ul>
+                  <li class="active boton" id="auth-button-restart">Reiniciar Servicios</li>
+                  <li class="active boton" onclick="crearServer()">Agregar Servicio</li>
+       
+                </ul>
+              </div>
+
+        
+         
+        </header>
+        <section>
+<div class="interval" id="recarca" style="text-align: right;margin-top: -30px;float: right;width: 100%;">
+            <div class="title" style="
+    float: left;
+    font-size: 17px;
+    color: #fff;
+    margin-top: 27px;
+    text-align: left;
+    padding-left: 28px;
+    /* margin-right: 103px; */
+    padding-right: 30px;
+"><span id="nameservi">Servicios API REST</span></div>
+            <a style="display:none"  href="#" class="rec action-button shadow animate blue">Recargar Log</a>
+            <a style="display:none"  href="#" class="serv action-button shadow animate red-1">Reiniciar Servicio</a>
+            <a style="display:none" href="#" class="dep action-button shadow animate yellow">DEPLOY</a>
+          </div>
+          <div class="chart">
+
+<pre id="servid" class="codepre" style="font-weight: bold; 	background-color: #000;">
+  __  __     _     ___     _       ____       __          _     ___    _  _ 
+ |  \/  |   /_\   | _ \   /_\     |__ /      /  \        /_\   |   \  | \| |
+ | |\/| |  / _ \  |  _/  / _ \     |_ \  _  | () |      / _ \  | |) | | .` |
+ |_|  |_| /_/ \_\ |_|   /_/ \_\   |___/ (_)  \__/      /_/ \_\ |___/  |_|\_|
+  ___  __   __    _     ___   _____   ___   _  _   ___   ___     _     _  _ 
+ | _ ) \ \ / /   (_)   | __| |_   _| | __| | || | | __| | _ \   /_\   | \| |
+ | _ \  \ V /     _    | _|    | |   | _|  | __ | | _|  |   /  / _ \  | .` |
+ |___/   |_|     (_)   |_|     |_|   |___| |_||_| |___| |_|_\ /_/ \_\ |_|\_|
+ </pre>
+          </div>
+        </section>
+
+      </article>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" onclick="cerrar()">&times;</span>
+
+      <p style="
+    padding-left: 20px;
+">Digita la informacion correspondiente para crear su servidor API</p>
+          
+        <div class="container">
+          <form>
+            <div class="input-group">
+              <input type="text" required="required">
+              <label for="f1">Schema</label>
+              <span class="bar"></span>
+              <div class="input-group-append">
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
+              </div>
+            </div>
+              <div class="input-group">
+                <input type="text" required="required">
+                <label for="f1">Puerto</label>
+                <span class="bar"></span>
+                <div class="input-group-append">
+                  <div class="input-group-text"><i class="fa fa-user"></i></div>
+                </div>
+              </div>
+        
+            <div id="buttons">
+              <a href="#" class="btn-b verde" onclick="cerrarCrear()" id="auth-button-create">Crear Servicio</a>
+            </div>
+       
+          </form>
+        </div>
+        </div>
+      
+      </div>
+    </script>
+
+	</div>
+
+	<!-- All of the Node.js APIs are available in this renderer process. -->
+
+
+	<!-- All of the Node.js APIs are available in this renderer process. -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+	<script>
+		window.$ = window.jQuery = require('jquery');
+
+	</script>
+	<script>
+		// You can also require other files to run in this process
+		require('./statics/js/renderer.js')
+
+	</script>
+
+
+
+	<script src="./statics/js/app.js"></script>
+
+</body>
+
+</html>
