@@ -13,6 +13,7 @@ let mainWindow
 
 function createWindow() {
 	// Create the browser window.
+	//Para windows cambiar extencion icns por ico
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 800,

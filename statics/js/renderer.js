@@ -3,8 +3,8 @@ var request = require('request');
 
 var servidores = null
 var session = nodemiral.session('129.213.181.81', {
-	username: 'opc',
-	password: '123SerAdn30**'
+	username: '************',
+	password: '************'
 });
 // PM2_API_PORT=7100 pm2 web
 
