@@ -1,7 +1,7 @@
 directories:
   output: dist
   buildResources: build
-appId: mapaadnv1
+appId: DavidBotv1
 asar: true
 dmg:
   contents:
