@@ -1,5 +1,5 @@
 {
-  "name": "mapaadn",
+  "name": "DavidBot",
   "version": "1.0.0",
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
@@ -16,11 +16,10 @@
     "mapa"
   ],
   "build": {
-    "appId": "mapaadnv1",
+    "appId": "DavidBotv1",
     "asar": true,
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 110,
           "y": 150
         },
