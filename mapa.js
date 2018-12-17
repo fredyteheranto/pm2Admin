@@ -16,11 +16,8 @@ function createWindow() {
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 800,
-		fullscreen: false,
-		skipTaskbar: true,
-		toolbar: false,
-		resizable: false,
-		transparent: true,
+		resizable: true,
+		transparent: false,
 		icon: __dirname + '/icon.icns',
 
 
@@ -32,7 +29,7 @@ function createWindow() {
 	mainWindow.loadFile('index.html')
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
+	//mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {

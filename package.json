@@ -4,8 +4,10 @@
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
   "scripts": {
+    "postinstall": "install-app-deps",
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "build"
   },
   "repository": " https: //github.com/fredyteheranto/servergestion.git",
   "keywords": [
@@ -13,16 +15,46 @@
     "adn",
     "mapa"
   ],
+  "build": {
+    "appId": "mapaadnv1",
+    "asar": true,
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "icon.icns"
+    }
+  },
   "author": "fredyteheranto",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^3.0.10"
+    "electron": "^3.0.10",
+    "electron-builder": "^20.38.3"
   },
   "dependencies": {
     "electron-handlebars": "^2.0.0",
     "handlebars": "^4.0.12",
     "jquery": "^3.3.1",
     "nodemiral": "^1.1.1",
+    "request": "^2.88.0",
     "smalltalk": "^3.2.2",
     "then-request": "^6.0.0"
   }
