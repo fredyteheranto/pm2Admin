@@ -20,18 +20,13 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
-function sendStatusToWindow(text) {
-	log.info(text);
-	win.webContents.send('message', text);
-}
 
 function createWindow() {
 
 	mainWindow = new BrowserWindow({
 		width: 1200,
-		height: 800,
-		resizable: true,
-		transparent: false,
+		height: 768,
+		resizable: false,
 		icon: __dirname + '/icon.icns',
 	})
 	mainWindow.setMenu(null);
@@ -41,7 +36,7 @@ function createWindow() {
 	mainWindow.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
 
 	// Open the DevTools.
-	//	mainWindow.webContents.openDevTools()
+	//mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {
@@ -50,6 +45,12 @@ function createWindow() {
 
 	return mainWindow;
 }
+
+function sendStatusToWindow(text) {
+	log.info(text);
+	mainWindow.webContents.send('message', text);
+}
+
 
 
 
@@ -74,15 +75,6 @@ autoUpdater.on('download-progress', (progressObj) => {
 	log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
 	sendStatusToWindow(log_message);
 })
-autoUpdater.on('update-downloaded', (info) => {
-	sendStatusToWindow('Update downloaded');
-})
-
-app.on('ready', function () {
-	createWindow();
-
-	autoUpdater.checkForUpdates();
-})
 autoUpdater.on('update-downloaded', (ev, info) => {
 	// Wait 5 seconds, then quit and install
 	// In your application, you don't need to wait 5 seconds.
@@ -91,6 +83,13 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 		autoUpdater.quitAndInstall();
 	}, 5000)
 })
+
+app.on('ready', function () {
+	createWindow();
+
+	autoUpdater.checkForUpdates();
+})
+
 
 
 

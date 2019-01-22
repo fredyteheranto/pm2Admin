@@ -1,12 +1,12 @@
-version: 1.0.6
+version: 1.0.9
 files:
-  - url: DavidBot-1.0.6-mac.zip
-    sha512: YBnwIbxTbzbMBoMcebxa2/V6DjzNdpu5+uUT6qwFLv5Y41cNGHfItgC1bNGBrWJ0TUt1p2NEK2yv9Z9a4SKEHA==
-    size: 53158523
-    blockMapSize: 56697
-  - url: DavidBot-1.0.6.dmg
-    sha512: qN184QkQq1cKIpeyNjDWTvgLHz+UhLHE8FOZaHmSXf9ciBsP6VQmoERwlRKv0lXm1qWof3qGiE/u4GTgOHmW2Q==
-    size: 54918074
-path: DavidBot-1.0.6-mac.zip
-sha512: YBnwIbxTbzbMBoMcebxa2/V6DjzNdpu5+uUT6qwFLv5Y41cNGHfItgC1bNGBrWJ0TUt1p2NEK2yv9Z9a4SKEHA==
-releaseDate: '2019-01-22T18:04:38.531Z'
+  - url: DavidBot-1.0.9-mac.zip
+    sha512: iNTYoBbGp2r6kmSf7LiqD29m5V/wHc1IEss7XR3S0nr/KVYZeaXaU+f+wDSzikIpK/+CUJuHG8VvBa7gWmIiPg==
+    size: 53162556
+    blockMapSize: 56783
+  - url: DavidBot-1.0.9.dmg
+    sha512: CeKa/5EyZgMs31+gN1OfkI4HDeHPpnUQJVwQyOcOAB3K2XeVscJK6T75A8BrEpS2qZM84P21Gc7Bi1nIGzxmuA==
+    size: 54921231
+path: DavidBot-1.0.9-mac.zip
+sha512: iNTYoBbGp2r6kmSf7LiqD29m5V/wHc1IEss7XR3S0nr/KVYZeaXaU+f+wDSzikIpK/+CUJuHG8VvBa7gWmIiPg==
+releaseDate: '2019-01-22T23:07:15.930Z'

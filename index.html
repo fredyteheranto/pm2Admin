@@ -11,13 +11,80 @@
 
 
 <body>
-  <div style="
-      display: block;
-      color: #fff;
-      margin-left: 20%;
-  ">DavidBot 🤖 V: <span id="version">vX.Y.Z</span>
-    <br>
-    <div id="messages"></div>
+
+
+  <div id="loader">
+
+    <div class="center">
+      <div class="spinner-wrapper">
+        <div class="server-wrapper">
+          <div class="server">
+            <div class="HDD"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="server">
+            <div class="HDD"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="server">
+            <div class="HDD"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="server">
+            <div class="HDD"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="server">
+            <div class="HDD"></div>
+            <div class="indicator"></div>
+          </div>
+        </div>
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+          <div class="rect6"></div>
+          <div class="rect7"></div>
+          <div class="rect8"></div>
+          <div class="rect9"></div>
+          <div class="rect10"></div>
+          <br>
+          <br>
+          <div class="rect11"></div>
+          <div class="rect12"></div>
+          <div class="rect13"></div>
+          <div class="rect14"></div>
+          <div class="rect15"></div>
+          <div class="rect16"></div>
+          <div class="rect17"></div>
+          <div class="rect18"></div>
+          <div class="rect19"></div>
+          <div class="rect20"></div>
+        </div>
+        <div class="probe">
+          <div class="screen">
+            <br>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <div class="slit"></div>
+            <!--
+              <div class="blue"></div>
+              -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text" id="text">
+      Cargando Servicios...
+    </div>
   </div>
 
   <div id="menu">
@@ -35,7 +102,7 @@
           <header>Servidores</header>
           <ul>
             {{#each people}}
-            <li class="green boton databuton" data-name="{{this.name}}" data-deploy="{{this.pm2_env.pm_cwd}}"  id="{{this.pm_id}}">{{this.name}}</li>
+            <li class="green boton databuton" data-name="{{this.name}}" data-deploy="{{this.pm2_env.pm_cwd}}"  id="{{this.pm_id}}">{{this.name}} <span class="server-status" type="up"></span></li>
             {{/each}}
             <li class="red boton" id="crearServer" onclick="crearServer()">Crear Servicio</li>
           </ul>
@@ -46,12 +113,12 @@
         <header>
           <div class="title"><span id="s"></span></div>
     
-
+              
               <div class="interval">
                 <ul>
-                  <li class="active boton" id="auth-button-restart">Reiniciar Servicios</li>
-                  <li class="active boton" onclick="crearServer()">Agregar Servicio</li>
-                  <li class="active boton" id="auth-button-deploy">Deploy</li>
+                  <li class="boton topboton" id="auth-button-restart">Reiniciar Servicios</li>
+                  <li class="boton topboton" onclick="crearServer()">Agregar Servicio</li>
+                  <li class="boton topboton" id="auth-button-deploy">Deploy General</li>
        
                 </ul>
               </div>
@@ -70,16 +137,16 @@
     padding-left: 28px;
     /* margin-right: 103px; */
     padding-right: 30px;
-"><span id="nameservi">Servicios API REST </span></div>
-            <a style="display:none"  href="#" class="rec action-button shadow animate blue">Recargar Log</a>
-            <a style="display:none"  href="#" class="serv action-button shadow animate red-1">Reiniciar Servicio</a>
-            <a style="display:none" href="#" class="dep action-button shadow animate yellow">DEPLOY</a>
+"><span id="nameservi"> </span></div>
+            <a style="display:none" href="#" class="dep action-button shadow animate ">DEPLOY</a>
+            <a style="display:none" href="#" class="rec action-button shadow animate ">Recargar Log</a>
+            <a style="display:none" href="#" class="serv action-button shadow animate red-1">Reiniciar Servicio</a>
           </div>
           <div class="chart">
-<div style="background-image: url('bg-david.png');height: 100%;position: absolute;width: 100%;z-index: -1;background-size: 100% 100%;background-repeat: no-repeat;">
+<div style="background:#021523;position: absolute;width: 100%;z-index: -1;background-size: 100% 100%;background-repeat: no-repeat;min-height: 557px;">
 
 </div>
-<pre id="servid" class="codepre" style="font-weight: bold;">
+<pre id="servid" class="codepre" >
 
 
   __  __     _     ___     _       ____       __          _     ___    _  _ 
@@ -91,6 +158,7 @@
  | _ \  \ V /     _    | _|    | |   | _|  | __ | | _|  |   /  / _ \  | .` |
  |___/   |_|     (_)   |_|     |_|   |___| |_||_| |___| |_|_\ /_/ \_\ |_|\_|
  </pre>
+
             
           </div>
         </section>
@@ -142,6 +210,20 @@
 
   <!-- All of the Node.js APIs are available in this renderer process. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+  <div style="
+position: absolute;
+color: #fff;
+margin-left: 2%;
+top: 10px;
+z-index: 10;
+">DavidBot 🤖 : <span id="version">vX.Y.Z</span>
+    <br>
+
+  </div>
+  <div id="messages" style="font-size:12px;width:100%;height: 90px;position: fixed;bottom: 0;background: #2ecc71;padding: 10px;color: #fff;overflow-y: auto;"></div>
+  <div id="dataserver" style="font-size:12px;width:100%;height: 90px;position: fixed;bottom: 0;background: #021523;padding: 10px;color: #fff;overflow-y: auto;">
+    Servicios API REST
+  </div>
   <script>
     window.$ = window.jQuery = require('jquery');
   </script>
@@ -157,10 +239,19 @@
       ipcRenderer
     } = require('electron');
     ipcRenderer.on('message', function (event, text) {
-      console.log(event,text)
+      console.log(event, text)
       var container = document.getElementById('messages');
+      var dataserver = document.getElementById('dataserver');
       var message = document.createElement('div');
-      message.innerHTML = text;
+      console.log(container)
+      if (text == 'Update not available.') {
+        container.style = 'display:none'
+      } else {
+        message.innerHTML = text;
+        dataserver.style = 'display:block'
+
+      }
+
       container.appendChild(message);
     })
   </script>
