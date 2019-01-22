@@ -20,41 +20,38 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
+function sendStatusToWindow(text) {
+	log.info(text);
+	win.webContents.send('message', text);
+}
 
 function createWindow() {
-	// Create the browser window.
-	//Para windows cambiar extencion icns por ico
+
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 800,
 		resizable: true,
 		transparent: false,
 		icon: __dirname + '/icon.icns',
-
-
 	})
 	mainWindow.setMenu(null);
 	Menu.setApplicationMenu(null)
 
 	// and load the index.html of the app.
-	mainWindow.loadFile('index.html')
+	mainWindow.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
 
 	// Open the DevTools.
-	//mainWindow.webContents.openDevTools()
+	mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {
-		// Dereference the window object, usually you would store windows
-		// in an array if your app supports multi windows, this is the time
-		// when you should delete the corresponding element.
 		mainWindow = null
 	})
+
+	return mainWindow;
 }
 
-function sendStatusToWindow(text) {
-	log.info(text);
-	mainWindow.webContents.send('message', text);
-}
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -62,22 +59,24 @@ function sendStatusToWindow(text) {
 autoUpdater.on('checking-for-update', () => {
 	sendStatusToWindow('Checking for update...');
 })
-autoUpdater.on('update-available', (ev, info) => {
+autoUpdater.on('update-available', (info) => {
 	sendStatusToWindow('Update available.');
 })
-autoUpdater.on('update-not-available', (ev, info) => {
+autoUpdater.on('update-not-available', (info) => {
 	sendStatusToWindow('Update not available.');
 })
-autoUpdater.on('error', (ev, err) => {
-	console.log('okokoko', ev, err)
-	sendStatusToWindow('Error in auto-updater.');
+autoUpdater.on('error', (err) => {
+	sendStatusToWindow('Error in auto-updater. ' + err);
 })
-autoUpdater.on('download-progress', (ev, progressObj) => {
-	sendStatusToWindow('Download progress...');
+autoUpdater.on('download-progress', (progressObj) => {
+	let log_message = "Download speed: " + progressObj.bytesPerSecond;
+	log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+	log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+	sendStatusToWindow(log_message);
 })
-autoUpdater.on('update-downloaded', (ev, info) => {
-	sendStatusToWindow('Update downloaded; will install in 5 seconds');
-});
+autoUpdater.on('update-downloaded', (info) => {
+	sendStatusToWindow('Update downloaded');
+})
 
 app.on('ready', function () {
 	createWindow();
@@ -92,9 +91,6 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 	}, 5000)
 })
 
-app.on('ready', function () {
-	autoUpdater.checkForUpdates();
-});
 
 
 
@@ -102,13 +98,13 @@ app.on('browser-window-created', function (e, window) {
 	window.setMenu(null);
 })
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
-	// On macOS it is common for applications and their menu bar
-	// to stay active until the user quits explicitly with Cmd + Q
-	if (process.platform !== 'darwin') {
-		app.quit()
-	}
-})
+app.on('window-all-closed', () => {
+	app.quit();
+});
+
+app.on('ready', function () {
+	autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on('activate', function () {
 	// On macOS it's common to re-create a window in the app when the

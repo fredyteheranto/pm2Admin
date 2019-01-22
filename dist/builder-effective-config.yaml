@@ -2,9 +2,11 @@ directories:
   output: dist
   buildResources: build
 appId: DavidBotv1
-asar: true
 publish:
   - provider: github
+    owner: fredyteheranto
+    repo: pm2Admin
+asar: true
 dmg:
   contents:
     - x: 110

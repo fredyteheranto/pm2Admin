@@ -1,4 +1,4 @@
-appId: DavidBotv1
-publish:
-    provider: GitHub
-    token: $GH_TOKEN
+owner: fredyteheranto
+repo: pm2Admin
+provider: github
+token: 5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5

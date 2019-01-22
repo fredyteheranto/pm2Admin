@@ -11,6 +11,15 @@
 
 
 <body>
+  <div style="
+      display: block;
+      color: #fff;
+      margin-left: 20%;
+  ">DavidBot 🤖 V: <span id="version">vX.Y.Z</span>
+    <br>
+    <div id="messages"></div>
+  </div>
+
   <div id="menu">
     <script id="template" type="text/x-handlebars-template">
       <nav>
@@ -61,8 +70,7 @@
     padding-left: 28px;
     /* margin-right: 103px; */
     padding-right: 30px;
-"><span id="nameservi">Servicios API REST </span> | Version: <span id="version">vX.Y.Z</span>
-<div id="messages"></div></div>
+"><span id="nameservi">Servicios API REST </span></div>
             <a style="display:none"  href="#" class="rec action-button shadow animate blue">Recargar Log</a>
             <a style="display:none"  href="#" class="serv action-button shadow animate red-1">Reiniciar Servicio</a>
             <a style="display:none" href="#" class="dep action-button shadow animate yellow">DEPLOY</a>
@@ -141,9 +149,9 @@
     // You can also require other files to run in this process
     require('./statics/js/renderer.js')
     // Display the current version
+    // Display the current version
     let version = window.location.hash.substring(1);
     document.getElementById('version').innerText = version;
-
     // Listen for messages
     const {
       ipcRenderer

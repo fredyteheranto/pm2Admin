@@ -1,16 +1,16 @@
 {
   "name": "DavidBot",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "rm -rf dist  && export GITHUB_TOKEN=58004e387c1ceda27f42753b92977b9a0aed65bf &&  export GH_TOKEN=58004e387c1ceda27f42753b92977b9a0aed65bf && build -p always && build --win -p always",
+    "dist": "rm -rf dist  && export GITHUB_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 &&  export GH_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 && build --mac --win -p always",
     "distdev": "rm -rf dist && build && build --win"
   },
-  "repository": "https://github.com/fredyteheranto/servergestion.git",
+  "repository": "https://github.com/fredyteheranto/pm2Admin.git",
   "keywords": [
     "Electron",
     "adn",
@@ -18,10 +18,12 @@
   ],
   "build": {
     "appId": "DavidBotv1",
-    "asar": true,
     "publish": [{
-      "provider": "GitHub"
+      "provider": "github",
+      "owner": "fredyteheranto",
+      "repo": "pm2Admin"
     }],
+    "asar": true,
     "dmg": {
       "contents": [{
           "x": 110,

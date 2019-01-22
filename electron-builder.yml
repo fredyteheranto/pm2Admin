@@ -1,4 +1,0 @@
-appId: DavidBotv1
-publish:
-    provider: GitHub
-    token: $GH_TOKEN
