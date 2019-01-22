@@ -2,18 +2,18 @@
 <html>
 
 <head>
-	<link href="./statics/js/app.css" rel="stylesheet" type="text/css" />
+  <link href="./statics/js/app.css" rel="stylesheet" type="text/css" />
 
-	<meta charset="UTF-8">
-	<title>Mapa ADN</title>
+  <meta charset="UTF-8">
+  <title>DavidBot 🤖 | ADN 3.0 🤘🏾</title>
 </head>
 
 
 
 <body>
-	<div id="menu">
-		<script id="template" type="text/x-handlebars-template">
-			<nav>
+  <div id="menu">
+    <script id="template" type="text/x-handlebars-template">
+      <nav>
         <header>
         <img class="profile-image" src="notifyiconblanco.png" style="
     padding-top: 30px;
@@ -42,6 +42,7 @@
                 <ul>
                   <li class="active boton" id="auth-button-restart">Reiniciar Servicios</li>
                   <li class="active boton" onclick="crearServer()">Agregar Servicio</li>
+                  <li class="active boton" id="auth-button-deploy">Deploy</li>
        
                 </ul>
               </div>
@@ -66,8 +67,12 @@
             <a style="display:none" href="#" class="dep action-button shadow animate yellow">DEPLOY</a>
           </div>
           <div class="chart">
+<div style="background-image: url('bg-david.png');height: 100%;position: absolute;width: 100%;z-index: -1;background-size: 100% 100%;background-repeat: no-repeat;">
 
-<pre id="servid" class="codepre" style="font-weight: bold; 	background-color: #000;">
+</div>
+<pre id="servid" class="codepre" style="font-weight: bold;">
+
+
   __  __     _     ___     _       ____       __          _     ___    _  _ 
  |  \/  |   /_\   | _ \   /_\     |__ /      /  \        /_\   |   \  | \| |
  | |\/| |  / _ \  |  _/  / _ \     |_ \  _  | () |      / _ \  | |) | | .` |
@@ -77,6 +82,7 @@
  | _ \  \ V /     _    | _|    | |   | _|  | __ | | _|  |   /  / _ \  | .` |
  |___/   |_|     (_)   |_|     |_|   |___| |_||_| |___| |_|_\ /_/ \_\ |_|\_|
  </pre>
+            
           </div>
         </section>
 
@@ -93,7 +99,7 @@
         <div class="container">
           <form>
             <div class="input-group">
-              <input type="text" required="required">
+              <input type="text" id="schema" required="required">
               <label for="f1">Schema</label>
               <span class="bar"></span>
               <div class="input-group-append">
@@ -101,7 +107,7 @@
               </div>
             </div>
               <div class="input-group">
-                <input type="text" required="required">
+                <input type="number"  id="puerto" required="required" val="7015">
                 <label for="f1">Puerto</label>
                 <span class="bar"></span>
                 <div class="input-group-append">
@@ -120,26 +126,24 @@
       </div>
     </script>
 
-	</div>
+  </div>
 
-	<!-- All of the Node.js APIs are available in this renderer process. -->
+  <!-- All of the Node.js APIs are available in this renderer process. -->
 
 
-	<!-- All of the Node.js APIs are available in this renderer process. -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
-	<script>
-		window.$ = window.jQuery = require('jquery');
-
-	</script>
-	<script>
-		// You can also require other files to run in this process
-		require('./statics/js/renderer.js')
-
-	</script>
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+  <script>
+    // You can also require other files to run in this process
+    require('./statics/js/renderer.js')
+  </script>
 
 
 
-	<script src="./statics/js/app.js"></script>
+  <script src="./statics/js/app.js"></script>
 
 </body>
 

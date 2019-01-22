@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.0</string>
+    <string>1.0.2</string>
     <key>CFBundleVersion</key>
-    <string>1.0.0</string>
+    <string>1.0.2</string>
     <key>DTSDKBuild</key>
     <string>16E185</string>
     <key>DTSDKName</key>
@@ -43,7 +43,7 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>NSHumanReadableCopyright</key>
-    <string>Copyright © 2018 fredyteheranto</string>
+    <string>Copyright © 2019 fredyteheranto</string>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsLocalNetworking</key>
@@ -81,6 +81,6 @@
       </dict>
     </dict>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"1yCZiJc/Ms9gDptAz2OLDfzHMxlnD4R199RY45ttrXNeum2XTRCPVB0lv6YjrCSHviH/aUAZ2mBrVkkO651/KQ==","electron.asar":"2KY+3HwY1IZizalUn+SIjM/iIabSIJbgwwaWpMd/Appw1L2IAGyz8B7cO1jRDQcwuyPqOmpP61fxCrjnoRPVVg=="}}</string>
+    <string>{"checksums":{"app.asar":"WjSP+21biz7jz6d8f9DYVgc2wfWZF9TLgmGveXVDz14wahMNyXiSy2FLVNCFqal63dKUKhT6X7xowM3a+mYUuQ==","electron.asar":"2KY+3HwY1IZizalUn+SIjM/iIabSIJbgwwaWpMd/Appw1L2IAGyz8B7cO1jRDQcwuyPqOmpP61fxCrjnoRPVVg=="}}</string>
   </dict>
 </plist>

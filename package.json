@@ -1,6 +1,6 @@
 {
   "name": "DavidBot",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
   "scripts": {
@@ -19,8 +19,7 @@
     "appId": "DavidBotv1",
     "asar": true,
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 110,
           "y": 150
         },
@@ -56,6 +55,7 @@
     "nodemiral": "^1.1.1",
     "request": "^2.88.0",
     "smalltalk": "^3.2.2",
-    "then-request": "^6.0.0"
+    "then-request": "^6.0.0",
+    "unirest": "^0.5.1"
   }
 }
