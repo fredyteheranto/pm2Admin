@@ -18,4 +18,4 @@ linux:
 win:
   target: NSIS
   icon: icon.icns
-electronVersion: 3.0.10
+electronVersion: 3.1.1
