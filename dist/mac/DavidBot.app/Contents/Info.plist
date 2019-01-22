@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.4</string>
+    <string>1.0.6</string>
     <key>CFBundleVersion</key>
-    <string>1.0.4</string>
+    <string>1.0.6</string>
     <key>DTSDKBuild</key>
     <string>16E185</string>
     <key>DTSDKName</key>
@@ -81,6 +81,6 @@
       </dict>
     </dict>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"wVQm6+zqPsGK2N8Pq3jlqZU/Kj1faYdC8jWP4mv2iKwgzYXg234PyelQCa9NvV/b3kUxmK5wy5B7G0wCJRUGWg==","electron.asar":"2KY+3HwY1IZizalUn+SIjM/iIabSIJbgwwaWpMd/Appw1L2IAGyz8B7cO1jRDQcwuyPqOmpP61fxCrjnoRPVVg=="}}</string>
+    <string>{"checksums":{"app.asar":"cn4UuVRBX+G0GrcYGLnq6ZXkTdN8s7LJwNkrqVy5dYs+S4Yhm7KYbD7e7kLojIry/Jkd8YA3D0pHlZ2aTDW1Xw==","electron.asar":"2KY+3HwY1IZizalUn+SIjM/iIabSIJbgwwaWpMd/Appw1L2IAGyz8B7cO1jRDQcwuyPqOmpP61fxCrjnoRPVVg=="}}</string>
   </dict>
 </plist>

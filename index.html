@@ -157,6 +157,7 @@
       ipcRenderer
     } = require('electron');
     ipcRenderer.on('message', function (event, text) {
+      console.log(event,text)
       var container = document.getElementById('messages');
       var message = document.createElement('div');
       message.innerHTML = text;

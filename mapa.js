@@ -41,7 +41,7 @@ function createWindow() {
 	mainWindow.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
+	//	mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {
@@ -80,7 +80,8 @@ autoUpdater.on('update-downloaded', (info) => {
 
 app.on('ready', function () {
 	createWindow();
-	//autoUpdater.checkForUpdates();
+
+	autoUpdater.checkForUpdates();
 })
 autoUpdater.on('update-downloaded', (ev, info) => {
 	// Wait 5 seconds, then quit and install

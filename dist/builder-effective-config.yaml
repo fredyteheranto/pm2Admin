@@ -25,7 +25,5 @@ linux:
     - deb
 win:
   target: NSIS
-  icon: icon.icns
-mac:
-  icon: icon.icns
+  icon: icon.ico
 electronVersion: 3.0.10

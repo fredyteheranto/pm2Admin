@@ -1,13 +1,13 @@
 {
   "name": "DavidBot",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "rm -rf dist  && export GITHUB_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 &&  export GH_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 && build --mac --win -p always",
+    "dist": "rm -rf dist  && export GITHUB_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 &&  export GH_TOKEN=5e3ddbcfcdf2994f2ad5bffe22b30136f348a9b5 && build -p always && build --win -p always",
     "distdev": "rm -rf dist && build && build --win"
   },
   "repository": "https://github.com/fredyteheranto/pm2Admin.git",
@@ -50,10 +50,7 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "icon.icns"
-    },
-    "mac": {
-      "icon": "icon.icns"
+      "icon": "icon.ico"
     }
   },
   "author": "fredyteheranto",
