@@ -2,14 +2,24 @@
 const {
 	app,
 	BrowserWindow,
-	Menu
-} = require('electron')
+	Menu,
+	protocol,
+	ipcMain
+} = require('electron');
+const log = require('electron-log');
+const {
+	autoUpdater
+} = require("electron-updater");
 
 
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
+
 
 function createWindow() {
 	// Create the browser window.
@@ -41,10 +51,52 @@ function createWindow() {
 	})
 }
 
+function sendStatusToWindow(text) {
+	log.info(text);
+	mainWindow.webContents.send('message', text);
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+autoUpdater.on('checking-for-update', () => {
+	sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (ev, info) => {
+	sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (ev, info) => {
+	sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (ev, err) => {
+	console.log('okokoko', ev, err)
+	sendStatusToWindow('Error in auto-updater.');
+})
+autoUpdater.on('download-progress', (ev, progressObj) => {
+	sendStatusToWindow('Download progress...');
+})
+autoUpdater.on('update-downloaded', (ev, info) => {
+	sendStatusToWindow('Update downloaded; will install in 5 seconds');
+});
+
+app.on('ready', function () {
+	createWindow();
+	//autoUpdater.checkForUpdates();
+})
+autoUpdater.on('update-downloaded', (ev, info) => {
+	// Wait 5 seconds, then quit and install
+	// In your application, you don't need to wait 5 seconds.
+	// You could call autoUpdater.quitAndInstall(); immediately
+	setTimeout(function () {
+		autoUpdater.quitAndInstall();
+	}, 5000)
+})
+
+app.on('ready', function () {
+	autoUpdater.checkForUpdates();
+});
+
+
 
 app.on('browser-window-created', function (e, window) {
 	window.setMenu(null);
@@ -64,6 +116,9 @@ app.on('activate', function () {
 	if (mainWindow === null) {
 		createWindow()
 	}
+})
+ipcMain.on("quitAndInstall", (event, arg) => {
+	autoUpdater.quitAndInstall();
 })
 
 // In this file you can include the rest of your app's specific main process

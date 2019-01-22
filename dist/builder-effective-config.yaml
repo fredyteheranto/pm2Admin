@@ -3,6 +3,8 @@ directories:
   buildResources: build
 appId: DavidBotv1
 asar: true
+publish:
+  - provider: github
 dmg:
   contents:
     - x: 110
@@ -11,11 +13,17 @@ dmg:
       'y': 150
       type: link
       path: /Applications
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
 linux:
   target:
     - AppImage
     - deb
 win:
   target: NSIS
+  icon: icon.icns
+mac:
   icon: icon.icns
 electronVersion: 3.0.10
