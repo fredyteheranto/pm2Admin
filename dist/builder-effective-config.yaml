@@ -2,10 +2,6 @@ directories:
   output: dist
   buildResources: build
 appId: DavidBotv1
-publish:
-  - provider: github
-    owner: fredyteheranto
-    repo: pm2Admin
 asar: true
 dmg:
   contents:

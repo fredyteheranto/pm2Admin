@@ -55,10 +55,11 @@ function traerData() {
 
 			deployServer.addEventListener('click', function () {
 
+
 				document.getElementById("servid").innerHTML = 'Estamos realizando Deploy para todas las APIs  🤖DavidBot no se debe cerrar!  🙏🏾';
 				document.getElementById('loader').style = 'display:block';
 				document.getElementById('text').innerHTML = 'Realizando Deploy';
-				session.execute("cd /var/www && cd apicelsus &&  sudo git pull --no-edit && cd .. &&  cd apicopia2 &&  sudo git pull --no-edit && cd .. &&  cd apicopia3 &&  sudo git pull --no-edit && cd .. &&  cd apicopia5 &&  sudo git pull --no-edit && cd .. &&  cd apiDelvecchio &&  sudo git pull --no-edit && cd .. &&  cd apidev &&  sudo git pull --no-edit && cd .. &&  cd apifelder &&  sudo git pull --no-edit && cd .. &&  cd apimaxtech &&  sudo git pull --no-edit && cd .. &&  cd apipanelco &&  sudo git pull --no-edit && cd .. &&  cd apipos &&  sudo git pull --no-edit && cd .. &&  cd apiprod &&  sudo git pull --no-edit && cd .. &&  cd apipymes &&  sudo git pull --no-edit && cd .. &&  cd apiraip &&  sudo git pull --no-edit && cd .. &&  cd apiredfred &&  sudo git pull --no-edit && cd .. &&  cd apiserticol &&  sudo git pull --no-edit && cd .. &&  cd apitecinf &&  sudo git pull --no-edit && cd .. &&  cd apitecniisuzu &&  sudo git pull --no-edit && cd .. &&  cd  apitfco &&  sudo git pull --no-edit && cd .. && cd pos &&  git pull --no-edit && ionic build and ionic build && cd .. && cd delvecchiopos  &&  git pull --no-edit && ionic build and ionic build &&  pm2 restart all ", function (err, code, logs) {
+				session.execute("cd /var/www && cd apicelsus &&  sudo git pull --no-edit  && npm i && cd .. &&  cd apicopia2   && npm i  &&  sudo git pull --no-edit  &&  sudo npm i  && cd .. &&  cd apicopia3 &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apicopia5 &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apiDelvecchio &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apidev &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apifelder &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apimaxtech &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apipanelco &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apipos &&  sudo git pull --no-edit && cd .. &&  cd apiprod &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apipymes &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apiraip &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apiredfred  &&  sudo git pull --no-edit &&  sudo npm i  && cd .. &&  cd apiserticol &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apitecinf &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd apitecniisuzu &&  sudo git pull --no-edit &&  sudo npm i && cd .. &&  cd  apitfco &&  sudo git pull --no-edit &&  sudo npm i && cd .. && cd pos &&  git pull --no-edit && ionic build and ionic build && cd .. && cd delvecchiopos  &&  git pull --no-edit &&  sudo npm i && ionic build and ionic build &&  pm2 restart all && cd /var/www", function (err, code, logs) {
 					console.log(err, code, logs)
 					if (logs.stdout) {
 						var objDiv = document.getElementById("servid");
@@ -179,11 +180,11 @@ app.listen(port);"`
 				document.getElementById("servid").innerHTML = 'Cargando log de: ' + wm + '...';
 				document.getElementById('loader').style = 'display:block';
 				document.getElementById('text').innerHTML = 'Cargando Log';
-				console.log('......>>>', wm, "tail -n 30  /home/opc/.pm2/logs/" + wm + "-out.log")
+				console.log('......>>>', wm, "tail -n 30 /home/opc/.pm2/logs/" + wm + "-out.log")
 				//	setInterval(function () {tail -n 30  /home/opc/.pm2/logs/servidorAPitecinf-out.log
-				session.execute("tail -n 30  /home/opc/.pm2/logs/" + wm + "-out.log", function (err, code, logs) {
+				session.execute("tail -n 30 /home/opc/.pm2/logs/" + wm + "-out.log", function (err, code, logs) {
 					console.log('......', logs)
-					if (logs.stdout) {
+					if (logs) {
 						document.getElementById("servid").innerHTML = logs.stdout;
 						document.getElementById('loader').style = 'display:none';
 

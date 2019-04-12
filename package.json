@@ -1,6 +1,6 @@
 {
   "name": "DavidBot",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "Sistema gestion procesos servidor para adn 3.0",
   "main": "mapa.js",
   "scripts": {
@@ -18,11 +18,6 @@
   ],
   "build": {
     "appId": "DavidBotv1",
-    "publish": [{
-      "provider": "github",
-      "owner": "fredyteheranto",
-      "repo": "pm2Admin"
-    }],
     "asar": true,
     "dmg": {
       "contents": [{

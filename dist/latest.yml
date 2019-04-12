@@ -1,8 +1,8 @@
-version: 1.0.9
+version: 1.0.11
 files:
-  - url: DavidBot-Setup-1.0.9.exe
-    sha512: 99VApexP+aX6BYwuQ7p0nustXZsg+xdkiomk3QxbGLaZdfd63yPZY8kvCHloUmLfhkH4LxUP5fmSMJCfTrFE7A==
-    size: 42162609
-path: DavidBot-Setup-1.0.9.exe
-sha512: 99VApexP+aX6BYwuQ7p0nustXZsg+xdkiomk3QxbGLaZdfd63yPZY8kvCHloUmLfhkH4LxUP5fmSMJCfTrFE7A==
-releaseDate: '2019-01-22T23:12:40.323Z'
+  - url: DavidBot-Setup-1.0.11.exe
+    sha512: 0tcTwHO67v5Rvmd78MjVJffmMgFBC2Gxe6rn+TodVPJp6+PbBV8ZSOLmT+iXjRw2UKb2+laYLxQDquAmzvYbkg==
+    size: 42177269
+path: DavidBot-Setup-1.0.11.exe
+sha512: 0tcTwHO67v5Rvmd78MjVJffmMgFBC2Gxe6rn+TodVPJp6+PbBV8ZSOLmT+iXjRw2UKb2+laYLxQDquAmzvYbkg==
+releaseDate: '2019-03-21T20:18:20.411Z'

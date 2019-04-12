@@ -7,17 +7,15 @@ const {
 	ipcMain
 } = require('electron');
 const log = require('electron-log');
-const {
-	autoUpdater
-} = require("electron-updater");
+
 
 
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
+//autoUpdater.logger = log;
+//autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
 
@@ -26,14 +24,14 @@ function createWindow() {
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 768,
-		resizable: false,
+		resizable: true,
 		icon: __dirname + '/icon.icns',
 	})
 	mainWindow.setMenu(null);
 	Menu.setApplicationMenu(null)
 
 	// and load the index.html of the app.
-	mainWindow.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+	mainWindow.loadURL(`file://${__dirname}/index.html`);
 
 	// Open the DevTools.
 	//mainWindow.webContents.openDevTools()
@@ -54,40 +52,40 @@ function sendStatusToWindow(text) {
 
 
 
-// This method will be called when Electron has finished
+/*// This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-autoUpdater.on('checking-for-update', () => {
+//autoUpdater.on('checking-for-update', () => {
 	sendStatusToWindow('Checking for update...');
 })
-autoUpdater.on('update-available', (info) => {
+//autoUpdater.on('update-available', (info) => {
 	sendStatusToWindow('Update available.');
 })
-autoUpdater.on('update-not-available', (info) => {
+//autoUpdater.on('update-not-available', (info) => {
 	sendStatusToWindow('Update not available.');
 })
-autoUpdater.on('error', (err) => {
+//autoUpdater.on('error', (err) => {
 	sendStatusToWindow('Error in auto-updater. ' + err);
 })
-autoUpdater.on('download-progress', (progressObj) => {
+//autoUpdater.on('download-progress', (progressObj) => {
 	let log_message = "Download speed: " + progressObj.bytesPerSecond;
 	log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
 	log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
 	sendStatusToWindow(log_message);
 })
-autoUpdater.on('update-downloaded', (ev, info) => {
+//autoUpdater.on('update-downloaded', (ev, info) => {
 	// Wait 5 seconds, then quit and install
 	// In your application, you don't need to wait 5 seconds.
-	// You could call autoUpdater.quitAndInstall(); immediately
+	// You could call //autoUpdater.quitAndInstall(); immediately
 	setTimeout(function () {
-		autoUpdater.quitAndInstall();
+		//autoUpdater.quitAndInstall();
 	}, 5000)
-})
+}) */
 
 app.on('ready', function () {
 	createWindow();
 
-	autoUpdater.checkForUpdates();
+	//autoUpdater.checkForUpdates();
 })
 
 
@@ -103,7 +101,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', function () {
-	autoUpdater.checkForUpdatesAndNotify();
+	////autoUpdater.checkForUpdatesAndNotify();
 });
 
 app.on('activate', function () {
@@ -114,7 +112,7 @@ app.on('activate', function () {
 	}
 })
 ipcMain.on("quitAndInstall", (event, arg) => {
-	autoUpdater.quitAndInstall();
+	//autoUpdater.quitAndInstall();
 })
 
 // In this file you can include the rest of your app's specific main process
